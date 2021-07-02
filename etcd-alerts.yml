@@ -9,6 +9,11 @@ groups:
     annotations:
       description: If one more etcd member goes down the cluster will be unavailable
       summary: etcd cluster insufficient members
+    overlay:
+      - name: serhat-test
+        for: 20m
+        labels:
+          severity: dashboard
   - alert: NoLeader
     expr: etcd_server_has_leader{job="ETCD"} == 0
     for: 1m
